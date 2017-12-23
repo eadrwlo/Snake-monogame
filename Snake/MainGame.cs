@@ -62,7 +62,7 @@ namespace Snake
             }
            if (MenuState.IsShowGameScene)
             {
-                gameScene.Update();
+                gameScene.Update(gameTime);
             }
            if (MenuState.IsShowGameOverScene)
             {
