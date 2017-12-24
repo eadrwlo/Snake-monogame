@@ -19,3 +19,9 @@ C:\Users\Adrian\source\repos\Snake\Snake\obj\Debug\Snake.pdb
 C:\Users\Adrian\source\repos\Snake\Snake\bin\DesktopGL\AnyCPU\Debug\Content\ExitButton-300x110.xnb
 C:\Users\Adrian\source\repos\Snake\Snake\bin\DesktopGL\AnyCPU\Debug\Content\Logo-300x116.xnb
 C:\Users\Adrian\source\repos\Snake\Snake\bin\DesktopGL\AnyCPU\Debug\Content\PlayButton-300x110.xnb
+C:\Users\Adrian\source\repos\Snake\Snake\bin\DesktopGL\AnyCPU\Debug\Content\Arial.xnb
+C:\Users\Adrian\source\repos\Snake\Snake\bin\DesktopGL\AnyCPU\Debug\Content\background.xnb
+C:\Users\Adrian\source\repos\Snake\Snake\bin\DesktopGL\AnyCPU\Debug\Content\item.xnb
+C:\Users\Adrian\source\repos\Snake\Snake\bin\DesktopGL\AnyCPU\Debug\Content\PlayerBody.xnb
+C:\Users\Adrian\source\repos\Snake\Snake\bin\DesktopGL\AnyCPU\Debug\Content\checked-checkbox.xnb
+C:\Users\Adrian\source\repos\Snake\Snake\bin\DesktopGL\AnyCPU\Debug\Content\unchecked-checkbox.xnb
