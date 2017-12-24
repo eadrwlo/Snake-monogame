@@ -25,3 +25,5 @@ C:\Users\Adrian\source\repos\Snake\Snake\bin\DesktopGL\AnyCPU\Debug\Content\item
 C:\Users\Adrian\source\repos\Snake\Snake\bin\DesktopGL\AnyCPU\Debug\Content\PlayerBody.xnb
 C:\Users\Adrian\source\repos\Snake\Snake\bin\DesktopGL\AnyCPU\Debug\Content\checked-checkbox.xnb
 C:\Users\Adrian\source\repos\Snake\Snake\bin\DesktopGL\AnyCPU\Debug\Content\unchecked-checkbox.xnb
+C:\Users\Adrian\source\repos\Snake\Snake\bin\DesktopGL\AnyCPU\Debug\Content\SnakeHead.xnb
+C:\Users\Adrian\source\repos\Snake\Snake\bin\DesktopGL\AnyCPU\Debug\Content\SnakeBody.xnb

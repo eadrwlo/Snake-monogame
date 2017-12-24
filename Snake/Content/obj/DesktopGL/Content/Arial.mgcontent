@@ -3,14 +3,14 @@
   <SourceFile>C:/Users/Adrian/source/repos/Snake/Snake/Content/Arial.spritefont</SourceFile>
   <SourceTime>2017-12-24T11:07:17.7426458+01:00</SourceTime>
   <DestFile>C:/Users/Adrian/source/repos/Snake/Snake/Content/bin/DesktopGL/Content/Arial.xnb</DestFile>
-  <DestTime>2017-12-24T11:07:25.7012522+01:00</DestTime>
+  <DestTime>2017-12-24T14:04:09.5392213+01:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2017-12-12T03:05:02+01:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
   <ProcessorTime>2017-12-12T03:05:02+01:00</ProcessorTime>
   <Parameters>
     <Key>PremultiplyAlpha</Key>
-    <Value>True</Value>
+    <Value>False</Value>
   </Parameters>
   <Parameters>
     <Key>TextureFormat</Key>

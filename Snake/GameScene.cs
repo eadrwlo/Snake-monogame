@@ -14,7 +14,8 @@ namespace Snake
         DOWN,
         UP,
         LEFT,
-        RIGHT
+        RIGHT,
+        NONE
     }
     class GameScene : DrawableGameComponent
     {
@@ -45,6 +46,8 @@ namespace Snake
         bool isMoveUp;
         bool isMoveLeft;
         bool isMoveRight;
+        Texture2D snakeHead;
+        Texture2D snakeBody;
 
 
         public GameScene(Game game) : base(game)
@@ -58,11 +61,13 @@ namespace Snake
         {
             playerBodyTexture = game.Content.Load<Texture2D>("PlayerBody");
             backgroundTexture = game.Content.Load<Texture2D>("background");
+            snakeHead = game.Content.Load<Texture2D>("SnakeHead");
+            snakeBody = game.Content.Load<Texture2D>("SnakeBody");
             itemTexture = game.Content.Load<Texture2D>("Item");
             scoreFont = game.Content.Load<SpriteFont>("Arial");
             checkedCheckBoxTexture = game.Content.Load<Texture2D>("checked-checkbox");
             unCheckedCheckBoxTexture = game.Content.Load<Texture2D>("unchecked-checkbox");
-            checkBoxDescription = scoreFont = game.Content.Load<SpriteFont>("Arial");
+            checkBoxDescription = game.Content.Load<SpriteFont>("Arial");
 
         }
 
@@ -71,7 +76,7 @@ namespace Snake
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
             spriteBatch.Draw(backgroundTexture, backgroundRectangle, Color.White);
-            spriteBatch.Draw(playerBodyTexture, playerBodyRectangleList[0], Color.Red);
+            spriteBatch.Draw(snakeHead, playerBodyRectangleList[0], Color.LightGreen);
 
             int i = 0;
             while (bodyIndex != i)
@@ -79,10 +84,10 @@ namespace Snake
                 i++;
                 if (i != 0)
                 {
-                    spriteBatch.Draw(playerBodyTexture, playerBodyRectangleList[i], Color.Black);
+                    spriteBatch.Draw(snakeBody, playerBodyRectangleList[i], Color.LightGreen);
                 }
             }
-            spriteBatch.Draw(itemTexture, itemRectangle, Color.Green);
+            spriteBatch.Draw(itemTexture, itemRectangle, Color.White);
             spriteBatch.DrawString(scoreFont, "Score " + bodyIndex, new Vector2(0, 0), Color.DarkBlue);
             spriteBatch.DrawString(checkBoxDescription, "Waz moze zawracac: " , new Vector2(GraphicsDevice.Viewport.Width / 2, 10), Color.Blue);
 
@@ -122,8 +127,6 @@ namespace Snake
             checkBoxRectangle.Height = 34;
             checkBoxRectangle.X = GraphicsDevice.Viewport.Width - 40;
             checkBoxRectangle.Y = 10;
-
-
         }
 
         private void addBodyBlock()
@@ -208,7 +211,7 @@ namespace Snake
 
         private void moveSnake(GameTime gameTime)
         {
-            if (gameTime.TotalGameTime.Milliseconds % 75 == 0)
+            if (gameTime.TotalGameTime.Milliseconds % 5 == 0)
             {
                 if (bodyIndex > 0)
                 {
@@ -223,19 +226,19 @@ namespace Snake
                 }
                 if (isMoveDown)
                 {
-                    playerBodyRectangleList[0] = new Rectangle(playerBodyRectangleList[0].X, playerBodyRectangleList[0].Y + playerBodyRectangleList[0].Height, blockSize, blockSize);
+                    playerBodyRectangleList[0] = new Rectangle(playerBodyRectangleList[0].X, playerBodyRectangleList[0].Y + playerBodyRectangleList[0].Height / 2, blockSize, blockSize);
                 }
                 if (isMoveUp)
                 {
-                    playerBodyRectangleList[0] = new Rectangle(playerBodyRectangleList[0].X, playerBodyRectangleList[0].Y - playerBodyRectangleList[0].Height, blockSize, blockSize);
+                    playerBodyRectangleList[0] = new Rectangle(playerBodyRectangleList[0].X, playerBodyRectangleList[0].Y - playerBodyRectangleList[0].Height /2, blockSize, blockSize);
                 }
                 if (isMoveLeft)
                 {
-                    playerBodyRectangleList[0] = new Rectangle(playerBodyRectangleList[0].X - playerBodyRectangleList[0].Width , playerBodyRectangleList[0].Y, blockSize, blockSize);
+                    playerBodyRectangleList[0] = new Rectangle(playerBodyRectangleList[0].X - playerBodyRectangleList[0].Width / 2, playerBodyRectangleList[0].Y, blockSize, blockSize);
                 }
                 if (isMoveRight)
                 {
-                    playerBodyRectangleList[0] = new Rectangle(playerBodyRectangleList[0].X + playerBodyRectangleList[0].Width, playerBodyRectangleList[0].Y, blockSize, blockSize);
+                    playerBodyRectangleList[0] = new Rectangle(playerBodyRectangleList[0].X + playerBodyRectangleList[0].Width / 2 , playerBodyRectangleList[0].Y, blockSize, blockSize);
                 }
             }
         }
@@ -254,6 +257,7 @@ namespace Snake
                 addBodyBlock();
             }
 
+            IsPlayerInWindow();
 
             if (checkBoxRectangle.Intersects(new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, 1, 1)))
             {
@@ -265,6 +269,26 @@ namespace Snake
                 previousMouseState = Mouse.GetState();
             }    
                 
+        }
+          
+        private void IsPlayerInWindow()
+        {
+            if (playerBodyRectangleList[0].X >= GraphicsDevice.Viewport.Width)
+                GameOver();
+            if (playerBodyRectangleList[0].X < 0)
+                GameOver();
+            if (playerBodyRectangleList[0].Y < 0)
+                GameOver();
+            if (playerBodyRectangleList[0].Y >= GraphicsDevice.Viewport.Height)
+                GameOver();
+        }
+
+        private void GameOver()
+        {
+            MenuState.IsShowGameOverScene = true;
+            changeStatesOfDirectionFlags(Direction.NONE);
+            isStart = true;
+            bodyIndex = 0;
         }
 
         private void changeStatesOfDirectionFlags(Direction direction)
@@ -298,6 +322,14 @@ namespace Snake
                 case Direction.RIGHT:
                     {
                         isMoveRight = true;
+                        isMoveUp = false;
+                        isMoveLeft = false;
+                        isMoveDown = false;
+                        break;
+                    }
+                case Direction.NONE:
+                    {
+                        isMoveRight = false;
                         isMoveUp = false;
                         isMoveLeft = false;
                         isMoveDown = false;

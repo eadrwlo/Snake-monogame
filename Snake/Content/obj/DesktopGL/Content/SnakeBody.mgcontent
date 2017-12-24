@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Adrian/source/repos/Snake/Snake/Content/item.jpg</SourceFile>
-  <SourceTime>2017-12-23T18:50:24.5101267+01:00</SourceTime>
-  <DestFile>C:/Users/Adrian/source/repos/Snake/Snake/Content/bin/DesktopGL/item.xnb</DestFile>
-  <DestTime>2017-12-24T14:15:35.2688337+01:00</DestTime>
+  <SourceFile>C:/Users/Adrian/source/repos/Snake/Snake/Content/SnakeBody.jpg</SourceFile>
+  <SourceTime>2017-12-24T14:13:38.96966+01:00</SourceTime>
+  <DestFile>C:/Users/Adrian/source/repos/Snake/Snake/Content/bin/DesktopGL/Content/SnakeBody.xnb</DestFile>
+  <DestTime>2017-12-24T14:15:39.7139077+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-12-12T03:05:02+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
